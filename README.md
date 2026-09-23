@@ -26,6 +26,11 @@ macOS 上的 AI 相关小工具集合。每个项目各自独立，均为原生 
 
 它读取远端当前 `main` 作为父提交，历史正常累积；以 git 索引为准，`.gitignore` 依然生效。
 
+> 本地 `git` 历史与 GitHub 上的历史是**两条独立的时间线**（远端提交由 API 直接创建，
+> SHA 与本地不同）。因为本机根本推不了 git 端点，这不影响使用——**以 GitHub 上
+> 的内容为准，本地仓库只是工作副本**。若日后在能正常联网的环境里克隆一份，
+> 一切照常。
+
 > 如果想让标准 `git push` 也能用：`github.com:22` 与 `ssh.github.com:443` 都是通的，
 > 生成一把 SSH key 加到 GitHub（Settings → SSH keys）即可，之后就能正常 `git remote set-url` 换用 SSH。
 
