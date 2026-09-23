@@ -1,0 +1,18 @@
+# Build output
+.build/
+dist/
+*.o
+*.dSYM/
+
+# Xcode / SwiftPM extras
+.swiftpm/
+Package.resolved
+
+# macOS
+.DS_Store
+._*
+
+# Rendering / scratch output from the diagnostic flags
+*-preview.png
+preview*.png
+widget*.png
