@@ -8,6 +8,11 @@ dist/
 .swiftpm/
 Package.resolved
 
+# Node / 微信小程序
+node_modules/
+miniprogram_npm/
+*.log
+
 # macOS
 .DS_Store
 ._*

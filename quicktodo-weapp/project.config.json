@@ -1,0 +1,42 @@
+{
+  "description": "QuickTodo 微信小程序端（跨端轻量待办工具）",
+  "projectname": "quicktodo-weapp",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": false,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "ignoreUploadUnusedFiles": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "首页-待办列表",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的-设置",
+          "pathName": "pages/mine/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

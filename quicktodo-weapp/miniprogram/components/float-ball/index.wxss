@@ -1,0 +1,207 @@
+/* float-ball 样式：固定定位 + 自算坐标；球体 108rpx；单位一律 rpx（1px 边框除外） */
+.ball-wrap {
+  position: fixed;
+  z-index: 200; /* 高于底部面板与遮罩，面板展开时球体仍可点（变为关闭态） */
+  width: 108rpx;
+  height: 108rpx;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.ball-wrap.ready {
+  opacity: 1;
+}
+
+.ball {
+  position: relative;
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #29d27b, #07c160);
+  box-shadow: 0 8rpx 24rpx rgba(7, 193, 96, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ball:active {
+  transform: scale(0.94);
+}
+
+/* 录音态：放大 */
+.ball.rec {
+  transform: scale(1.12);
+  background: linear-gradient(145deg, #2ee08a, #06ad56);
+  box-shadow: 0 10rpx 32rpx rgba(7, 193, 96, 0.55);
+}
+
+/* 取消态：变红 */
+.ball.cancel {
+  transform: scale(0.96);
+  background: linear-gradient(145deg, #ff7b7b, #fa5151);
+  box-shadow: 0 10rpx 32rpx rgba(250, 81, 81, 0.45);
+}
+
+/* 面板展开态：灰底 × */
+.ball.open {
+  background: linear-gradient(145deg, #6b6b6b, #4a4a4a);
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.28);
+}
+
+/* ---------- 纯 CSS 麦克风图标 ---------- */
+.ic-mic {
+  position: relative;
+  width: 44rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-head {
+  position: absolute;
+  top: 4rpx;
+  width: 20rpx;
+  height: 30rpx;
+  border-radius: 12rpx;
+  background-color: #ffffff;
+}
+
+.mic-arc {
+  position: absolute;
+  top: 16rpx;
+  width: 38rpx;
+  height: 24rpx;
+  border: 4rpx solid #ffffff;
+  border-top: none;
+  border-radius: 0 0 24rpx 24rpx;
+}
+
+.mic-stem {
+  position: absolute;
+  bottom: 0;
+  width: 4rpx;
+  height: 10rpx;
+  background-color: #ffffff;
+  border-radius: 2rpx;
+}
+
+/* ---------- 关闭（×）图标 ---------- */
+.ic-close {
+  position: relative;
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.ic-close .bar {
+  position: absolute;
+  left: 0;
+  top: 20rpx;
+  width: 44rpx;
+  height: 4rpx;
+  border-radius: 2rpx;
+  background-color: #ffffff;
+}
+
+.ic-close .bar.a {
+  transform: rotate(45deg);
+}
+
+.ic-close .bar.b {
+  transform: rotate(-45deg);
+}
+
+/* ---------- 录音波纹 ---------- */
+.rings {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 108rpx;
+  height: 108rpx;
+}
+
+.ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 108rpx;
+  height: 108rpx;
+  border-radius: 50%;
+  border: 2rpx solid rgba(7, 193, 96, 0.7);
+  animation: qt-ripple 1.6s ease-out infinite;
+  opacity: 0;
+}
+
+.ring.r2 {
+  animation-delay: 0.4s;
+}
+
+.ring.r3 {
+  animation-delay: 0.8s;
+}
+
+@keyframes qt-ripple {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+/* ---------- 忙碌转圈 ---------- */
+.busy-ring {
+  position: absolute;
+  left: -6rpx;
+  top: -6rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.25);
+  border-top-color: #ffffff;
+  animation: qt-spin 0.9s linear infinite;
+}
+
+@keyframes qt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- 语音气泡 ---------- */
+.bubble {
+  position: absolute;
+  left: 50%;
+  bottom: 126rpx;
+  transform: translate(-50%, 8rpx);
+  max-width: 420rpx;
+  padding: 14rpx 20rpx;
+  border-radius: 16rpx;
+  background-color: rgba(0, 0, 0, 0.78);
+  color: #ffffff;
+  font-size: 24rpx;
+  line-height: 1.4;
+  word-break: break-all;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  white-space: normal;
+}
+
+/* 球体靠屏幕上方时，气泡显示在下方，避免被顶出屏幕 */
+.bubble.below {
+  bottom: auto;
+  top: 126rpx;
+}
+
+.bubble.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.bubble.cancel {
+  background-color: rgba(250, 81, 81, 0.92);
+}

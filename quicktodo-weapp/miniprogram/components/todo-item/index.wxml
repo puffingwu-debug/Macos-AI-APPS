@@ -1,0 +1,20 @@
+<!-- todo-item：内容 + 优先级色条 + 复选框 + 截止时间 + 来源 + 相对时间 -->
+<view class="item {{item.done ? 'is-done' : ''}}" bindtap="onEdit" bindlongpress="onMore">
+  <view class="prio-bar {{item.priorityCls}}"></view>
+
+  <view class="check {{item.done ? 'checked' : ''}}" catchtap="onToggle">
+    <view class="tick"></view>
+  </view>
+
+  <view class="body">
+    <view class="content">{{item.content}}</view>
+
+    <view class="meta">
+      <text class="tag deadline {{item.deadlineCls}}" wx:if="{{item.deadlineText}}">{{item.deadlineText}}</text>
+      <text class="tag source {{item.sourceCls}}">{{item.sourceIcon}} {{item.sourceText}}</text>
+      <text class="tag rel" wx:if="{{item.relText}}">{{item.relText}}</text>
+    </view>
+  </view>
+
+  <view class="arrow">›</view>
+</view>

@@ -1,0 +1,216 @@
+/* pages/index 样式 */
+
+.page {
+  min-height: 100vh;
+  padding: 20rpx 24rpx 240rpx; /* 底部留白，避免最后一条被悬浮球遮住 */
+  box-sizing: border-box;
+}
+
+/* ================= 提示条 ================= */
+.banner {
+  padding: 18rpx 22rpx;
+  margin-bottom: 18rpx;
+  border-radius: var(--qt-radius-sm, 12rpx);
+  font-size: 24rpx;
+  line-height: 1.5;
+}
+
+.banner.local {
+  background-color: rgba(255, 159, 10, 0.12);
+}
+
+.banner.err {
+  background-color: var(--qt-danger-weak, rgba(250, 81, 81, 0.12));
+}
+
+.banner-strong {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #ff9f0a;
+  margin-bottom: 4rpx;
+}
+
+.banner.err .banner-strong {
+  color: #fa5151;
+}
+
+.banner-text {
+  color: var(--qt-text-2, #7a7a7a);
+}
+
+/* ================= 分类切换 ================= */
+.tabs {
+  display: flex;
+  align-items: center;
+  padding: 8rpx;
+  margin-bottom: 18rpx;
+  border-radius: var(--qt-radius, 16rpx);
+  background-color: var(--qt-card, #ffffff);
+  box-shadow: var(--qt-shadow, 0 2rpx 12rpx rgba(0, 0, 0, 0.04));
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14rpx 0;
+  border-radius: 12rpx;
+  transition: background-color 0.18s ease;
+}
+
+.tab-label {
+  font-size: 28rpx;
+  color: var(--qt-text-2, #7a7a7a);
+}
+
+.tab-num {
+  margin-left: 10rpx;
+  padding: 0 12rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  line-height: 1.7;
+  color: var(--qt-text-2, #7a7a7a);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tab.on {
+  background-color: var(--qt-primary-weak, rgba(7, 193, 96, 0.12));
+}
+
+.tab.on .tab-label {
+  color: var(--qt-primary, #07c160);
+  font-weight: 600;
+}
+
+.tab.on .tab-num {
+  color: #ffffff;
+  background-color: var(--qt-primary, #07c160);
+}
+
+/* ================= 同步状态条 ================= */
+.syncbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8rpx 18rpx;
+}
+
+.sync-text {
+  font-size: 23rpx;
+  color: var(--qt-text-3, #b2b2b2);
+}
+
+.sync-text.err {
+  color: #fa5151;
+}
+
+.sync-action {
+  font-size: 23rpx;
+  color: var(--qt-primary, #07c160);
+}
+
+.list {
+  display: block;
+}
+
+/* ================= 空状态（纯 CSS 插画） ================= */
+.empty {
+  padding-top: 140rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.illus {
+  position: relative;
+  width: 220rpx;
+  height: 260rpx;
+}
+
+.paper {
+  position: absolute;
+  left: 0;
+  top: 20rpx;
+  width: 220rpx;
+  height: 240rpx;
+  border-radius: 20rpx;
+  background-color: var(--qt-card, #ffffff);
+  border: 1px solid var(--qt-border, #ededed);
+  box-shadow: var(--qt-shadow, 0 2rpx 12rpx rgba(0, 0, 0, 0.04));
+  box-sizing: border-box;
+}
+
+.clip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 96rpx;
+  height: 40rpx;
+  margin-left: -48rpx;
+  border-radius: 0 0 16rpx 16rpx;
+  background-color: var(--qt-primary, #07c160);
+  z-index: 2;
+}
+
+.line {
+  position: absolute;
+  left: 32rpx;
+  height: 14rpx;
+  border-radius: 8rpx;
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.line.l1 {
+  top: 88rpx;
+  width: 156rpx;
+}
+
+.line.l2 {
+  top: 130rpx;
+  width: 120rpx;
+}
+
+.line.l3 {
+  top: 172rpx;
+  width: 88rpx;
+}
+
+/* 右下角勾选标记 */
+.done-mark {
+  position: absolute;
+  right: 24rpx;
+  bottom: 22rpx;
+  width: 40rpx;
+  height: 22rpx;
+  border-left: 6rpx solid var(--qt-primary, #07c160);
+  border-bottom: 6rpx solid var(--qt-primary, #07c160);
+  transform: rotate(-45deg);
+  opacity: 0.85;
+}
+
+.empty-title {
+  margin-top: 34rpx;
+  font-size: 30rpx;
+  color: var(--qt-text, #181818);
+}
+
+.empty-desc {
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  color: var(--qt-text-3, #b2b2b2);
+  text-align: center;
+  padding: 0 60rpx;
+  line-height: 1.6;
+}
+
+@media (prefers-color-scheme: dark) {
+  .line {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .tab-num {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+}

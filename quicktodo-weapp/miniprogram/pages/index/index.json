@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "todo-item": "/components/todo-item/index",
+    "float-ball": "/components/float-ball/index",
+    "todo-sheet": "/components/todo-sheet/index"
+  },
+  "navigationBarTitleText": "QuickTodo",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "backgroundColor": "#f7f7f7"
+}
