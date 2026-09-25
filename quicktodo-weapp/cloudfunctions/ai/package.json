@@ -1,0 +1,13 @@
+{
+  "name": "ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QuickTodo 云函数 ai：DeepSeek 结构化待办解析 + 规则降级（SYNC-PROTOCOL v1 §3）",
+  "main": "index.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

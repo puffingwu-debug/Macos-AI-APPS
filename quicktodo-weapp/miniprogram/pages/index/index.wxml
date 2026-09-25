@@ -1,0 +1,95 @@
+<!--
+  pages/index —— 主列表页
+  结构：本地模式提示条 / 同步状态条 / 分类切换 / 列表 / 空状态 + 悬浮球 + 底部面板
+-->
+<view class="page">
+  <!-- 本地模式提示条（cloudEnv 为空时） -->
+  <view class="banner local" wx:if="{{localMode}}">
+    <text class="banner-strong">本地模式</text>
+    <text class="banner-text">未配置云环境，数据只保存在本机（config.js → cloudEnv）</text>
+  </view>
+
+  <!-- 同步失败提示条 -->
+  <view class="banner err" wx:if="{{syncError}}">
+    <text class="banner-strong">同步异常</text>
+    <text class="banner-text">{{syncError}}，数据已存在本机，会自动重试</text>
+  </view>
+
+  <!-- 分类切换 -->
+  <view class="tabs">
+    <view
+      class="tab {{filter === item.key ? 'on' : ''}}"
+      wx:for="{{tabs}}"
+      wx:key="key"
+      data-filter="{{item.key}}"
+      bindtap="onFilter"
+    >
+      <text class="tab-label">{{item.label}}</text>
+      <text class="tab-num">{{item.count}}</text>
+    </view>
+  </view>
+
+  <!-- 同步状态条 -->
+  <view class="syncbar" bindtap="onSyncTap">
+    <text class="sync-text {{syncError ? 'err' : ''}}">{{syncText}}</text>
+    <text class="sync-action">{{syncing ? '同步中…' : '立即同步'}}</text>
+  </view>
+
+  <!-- 列表：wx:key 用业务主键 id（稳定 key，整体替换也能复用节点） -->
+  <view class="list" wx:if="{{list.length > 0}}">
+    <todo-item
+      wx:for="{{list}}"
+      wx:key="id"
+      item="{{item}}"
+      bind:toggle="onToggle"
+      bind:edit="onEdit"
+      bind:more="onMore"
+    />
+  </view>
+
+  <!-- 空状态：纯 CSS 插画 -->
+  <view class="empty" wx:else>
+    <view class="illus">
+      <view class="clip"></view>
+      <view class="paper">
+        <view class="line l1"></view>
+        <view class="line l2"></view>
+        <view class="line l3"></view>
+        <view class="done-mark"></view>
+      </view>
+    </view>
+    <view class="empty-title">{{emptyTitle}}</view>
+    <view class="empty-desc">{{emptyDesc}}</view>
+  </view>
+</view>
+
+<!-- 常驻悬浮球：单击展开面板 / 长按语音 / 可拖拽吸附 -->
+<float-ball
+  expanded="{{sheetVisible}}"
+  busy="{{ballBusy}}"
+  hint="{{ballHint}}"
+  bind:balltap="onBallTap"
+  bind:recordstart="onRecordStart"
+  bind:recordend="onRecordEnd"
+/>
+
+<!-- 底部面板：语音状态 / 快捷新增 / AI 预览导入 -->
+<todo-sheet
+  visible="{{sheetVisible}}"
+  mode="{{sheetMode}}"
+  item="{{sheetItem}}"
+  voice-state="{{voiceState}}"
+  voice-text="{{voiceText}}"
+  voice-error="{{voiceError}}"
+  ai-loading="{{aiLoading}}"
+  ai-engine="{{aiEngine}}"
+  ai-note="{{aiNote}}"
+  preview-items="{{previewItems}}"
+  preview-token="{{previewToken}}"
+  bind:close="onSheetClose"
+  bind:submit="onSheetSubmit"
+  bind:manualtext="onManualText"
+  bind:voicetoggle="onVoiceToggle"
+  bind:import="onImport"
+  bind:discardpreview="onDiscardPreview"
+/>

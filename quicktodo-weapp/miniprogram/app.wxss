@@ -1,0 +1,105 @@
+/**
+ * app.wxss —— 全局样式 + 设计变量（微信原生风格）
+ * 深色模式：使用 @media (prefers-color-scheme: dark) 覆盖 CSS 变量（稳定可靠，无需 theme.json）。
+ * 说明：自定义组件内部通过 var(--qt-xxx, 兜底值) 引用这些变量，变量是继承属性，
+ *      页面根的变量会自然继承进组件；即使继承失败也还有兜底值，不会出现「颜色失效」。
+ */
+page {
+  --qt-primary: #07c160;
+  --qt-primary-dark: #06ad56;
+  --qt-primary-weak: rgba(7, 193, 96, 0.12);
+  --qt-bg: #f7f7f7;
+  --qt-card: #ffffff;
+  --qt-text: #181818;
+  --qt-text-2: #7a7a7a;
+  --qt-text-3: #b2b2b2;
+  --qt-border: #ededed;
+  --qt-danger: #fa5151;
+  --qt-danger-weak: rgba(250, 81, 81, 0.12);
+  --qt-blue: #1989fa;
+  --qt-gray: #b2b2b2;
+  --qt-orange: #ff9f0a;
+  --qt-mask: rgba(0, 0, 0, 0.45);
+  --qt-radius: 16rpx;
+  --qt-radius-lg: 20rpx;
+  --qt-radius-sm: 12rpx;
+  --qt-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  --qt-shadow-strong: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
+
+  background-color: var(--qt-bg);
+  color: var(--qt-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  page {
+    --qt-bg: #111111;
+    --qt-card: #1e1e1e;
+    --qt-text: #e8e8e8;
+    --qt-text-2: #9a9a9a;
+    --qt-text-3: #6f6f6f;
+    --qt-border: #2b2b2b;
+    --qt-primary-weak: rgba(7, 193, 96, 0.18);
+    --qt-danger-weak: rgba(250, 81, 81, 0.18);
+    --qt-mask: rgba(0, 0, 0, 0.6);
+    --qt-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.4);
+    --qt-shadow-strong: 0 8rpx 32rpx rgba(0, 0, 0, 0.55);
+  }
+}
+
+/* ============ 通用原子类 ============ */
+.qt-card {
+  background-color: var(--qt-card);
+  border-radius: var(--qt-radius);
+  box-shadow: var(--qt-shadow);
+}
+
+.qt-row {
+  display: flex;
+  align-items: center;
+}
+
+.qt-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qt-muted {
+  color: var(--qt-text-2);
+  font-size: 24rpx;
+}
+
+.qt-hairline {
+  height: 1px;
+  background-color: var(--qt-border);
+}
+
+/* 主按钮：覆盖小程序 v2 风格默认样式 */
+.qt-btn {
+  background-color: var(--qt-primary);
+  color: #ffffff;
+  border-radius: var(--qt-radius-sm);
+  font-size: 28rpx;
+  line-height: 2.4;
+  text-align: center;
+  border: none;
+}
+
+.qt-btn::after {
+  border: none;
+}
+
+.qt-btn-ghost {
+  background-color: var(--qt-card);
+  color: var(--qt-text);
+  border: 1px solid var(--qt-border);
+}
+
+.qt-btn-danger {
+  background-color: var(--qt-danger-weak);
+  color: var(--qt-danger);
+}

@@ -1,0 +1,43 @@
+<!--
+  float-ball：常驻悬浮球
+  position:fixed + left/top 自算坐标（不用 movable-area，避免挡住底层页面触摸）
+-->
+<view
+  class="ball-wrap {{ready ? 'ready' : ''}}"
+  style="left:{{x}}px; top:{{y}}px;"
+  catchtouchmove="onTouchMove"
+  bindtouchstart="onTouchStart"
+  bindtouchend="onTouchEnd"
+  bindtouchcancel="onTouchCancel"
+>
+  <!-- 录音气泡：实时识别文字 / 松开取消 -->
+  <view class="bubble {{bubbleBelow ? 'below' : ''}} {{recording ? 'show' : ''}} {{canceling ? 'cancel' : ''}}">
+    <text wx:if="{{canceling}}">松开取消</text>
+    <text wx:elif="{{hint}}">{{hint}}</text>
+    <text wx:else>正在聆听…</text>
+  </view>
+
+  <!-- 录音波纹（纯 CSS 动画） -->
+  <view class="rings" wx:if="{{recording && !canceling}}">
+    <view class="ring r1"></view>
+    <view class="ring r2"></view>
+    <view class="ring r3"></view>
+  </view>
+
+  <!-- AI 解析中转圈 -->
+  <view class="busy-ring" wx:if="{{busy}}"></view>
+
+  <view class="ball {{recording ? 'rec' : ''}} {{canceling ? 'cancel' : ''}} {{busy ? 'busy' : ''}} {{expanded ? 'open' : ''}}">
+    <!-- 常态：麦克风图标（纯 CSS 画） -->
+    <view class="ic-mic" wx:if="{{!expanded}}">
+      <view class="mic-head"></view>
+      <view class="mic-arc"></view>
+      <view class="mic-stem"></view>
+    </view>
+    <!-- 展开态：关闭（×） -->
+    <view class="ic-close" wx:else>
+      <view class="bar a"></view>
+      <view class="bar b"></view>
+    </view>
+  </view>
+</view>

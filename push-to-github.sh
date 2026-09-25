@@ -26,9 +26,16 @@ if ! gh auth status >/dev/null 2>&1; then
   exit 1
 fi
 
-# 只发布这里列出的路径。曾经用 `git add -A` 扫整个父目录，结果把同一文件夹下
-# 其他无关项目一并推上了公开仓库——加新项目时请显式追加。
-PUBLISH=(AITokenBar README.md .gitignore push-to-github.sh)
+# 要发布的路径。这个目录是多个项目共用的集合仓库（本机可能有多个会话同时在此工作），
+# 所以列成白名单而不是 `git add -A`：新增项目时请显式追加，避免把无关内容推到公开仓库。
+PUBLISH=(
+  AITokenBar          # 桌面 AI 用量小组件
+  QuickTodo           # 跨端待办（Mac 客户端）
+  quicktodo-weapp     # 跨端待办（小程序 + 云函数）
+  docs                # 跨端契约与验证记录
+  tools               # 契约一致性校验
+  README.md .gitignore push-to-github.sh
+)
 
 echo "==> 暂存改动（仅 ${PUBLISH[*]}）"
 git add -A -- "${PUBLISH[@]}"

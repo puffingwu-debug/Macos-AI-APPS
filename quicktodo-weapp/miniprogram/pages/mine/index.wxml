@@ -1,0 +1,124 @@
+<!--
+  pages/mine —— 我的/设置
+  云环境与登录态 / 待办统计 / 扫码登录 Mac / 浮窗与桌面指引 / 危险操作 / 关于
+-->
+<view class="page">
+  <!-- 账号与环境 -->
+  <view class="card">
+    <view class="card-title">账号与环境</view>
+
+    <view class="kv">
+      <text class="k">云环境</text>
+      <text class="v {{localMode ? 'warn' : ''}}">{{cloudEnvText}}</text>
+    </view>
+
+    <view class="kv">
+      <text class="k">运行模式</text>
+      <text class="v {{localMode ? 'warn' : 'ok'}}">{{localMode ? '本地模式（不联网）' : '云同步已开启'}}</text>
+    </view>
+
+    <view class="kv" bindtap="onCopyOpenid">
+      <text class="k">登录态 openid</text>
+      <text class="v">{{openidMasked}}</text>
+    </view>
+
+    <view class="kv">
+      <text class="k">云端待办数</text>
+      <text class="v">{{cloudReady ? serverCount : '—'}}</text>
+    </view>
+
+    <view class="kv last">
+      <text class="k">同步状态</text>
+      <text class="v">{{lastSyncText}}</text>
+    </view>
+
+    <view class="btn-row">
+      <view class="btn" bindtap="onSyncTap">{{syncing ? '同步中…' : '立即同步'}}</view>
+      <view class="btn ghost" bindtap="onScanLogin">扫码登录 Mac</view>
+    </view>
+
+    <view class="hint">登录无需注册：openid 由云函数上下文自动提供。扫码登录仅用于把 Mac 端绑定到当前微信账号。</view>
+  </view>
+
+  <!-- 待办统计 -->
+  <view class="card">
+    <view class="card-title">待办统计</view>
+    <view class="stat-row">
+      <view class="stat">
+        <view class="stat-num">{{counts.all}}</view>
+        <view class="stat-label">全部</view>
+      </view>
+      <view class="stat">
+        <view class="stat-num primary">{{counts.todo}}</view>
+        <view class="stat-label">待办</view>
+      </view>
+      <view class="stat">
+        <view class="stat-num">{{counts.done}}</view>
+        <view class="stat-label">已完成</view>
+      </view>
+      <view class="stat">
+        <view class="stat-num {{pending > 0 ? 'warn' : ''}}">{{pending}}</view>
+        <view class="stat-label">待上传</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 快速唤起 -->
+  <view class="card">
+    <view class="card-title">快速唤起</view>
+    <view class="cell" bindtap="onGuide">
+      <view class="cell-main">
+        <view class="cell-title">添加到微信浮窗 / 手机桌面</view>
+        <view class="cell-desc">微信未开放该 API，点这里看分机型操作路径</view>
+      </view>
+      <view class="cell-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 数据管理 -->
+  <view class="card">
+    <view class="card-title">数据管理</view>
+    <view class="cell" bindtap="onClearDone">
+      <view class="cell-main">
+        <view class="cell-title">清空已完成</view>
+        <view class="cell-desc">删除全部已完成待办，并同步到 Mac 端</view>
+      </view>
+      <view class="cell-arrow">›</view>
+    </view>
+    <view class="cell" bindtap="onClearCache">
+      <view class="cell-main">
+        <view class="cell-title">清空本地缓存</view>
+        <view class="cell-desc">仅清本机缓存，云端数据不受影响</view>
+      </view>
+      <view class="cell-arrow">›</view>
+    </view>
+    <view class="cell last" bindtap="onAbout">
+      <view class="cell-main">
+        <view class="cell-title">关于 / 版本</view>
+        <view class="cell-desc">v{{version}} · 契约 {{contractVersion}}</view>
+      </view>
+      <view class="cell-arrow">›</view>
+    </view>
+  </view>
+
+  <view class="foot">QuickTodo for WeChat · 数据先写本机，联网后自动同步</view>
+</view>
+
+<!-- 浮窗/桌面指引面板（自定义弹层，分机型说明） -->
+<view class="mask {{guideVisible ? 'show' : ''}}" bindtap="onGuideMaskTap"></view>
+<view class="guide {{guideVisible ? 'show' : ''}}" catchtap="noop">
+  <view class="guide-hd">
+    <text class="guide-title">快速唤起指引</text>
+    <view class="guide-close" bindtap="onGuideClose">关闭</view>
+  </view>
+  <scroll-view class="guide-bd" scroll-y>
+    <view class="guide-item" wx:for="{{guideSteps}}" wx:key="title">
+      <view class="guide-item-title">{{item.title}}</view>
+      <view class="guide-item-desc">{{item.desc}}</view>
+    </view>
+    <view class="guide-note">
+      说明：微信小程序没有开放「添加到浮窗 / 添加到桌面」的接口，任何小程序都无法用代码直接完成，
+      只能用上面的系统操作路径。这是平台限制，不是功能缺失。
+    </view>
+  </scroll-view>
+</view>
