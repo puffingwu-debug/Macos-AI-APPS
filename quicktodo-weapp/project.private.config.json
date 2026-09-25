@@ -1,8 +1,0 @@
-{
-  "description": "本地个人配置（不建议提交到版本库）。urlCheck=false 便于开发阶段访问未配置的域名。",
-  "projectname": "quicktodo-weapp",
-  "setting": {
-    "urlCheck": false,
-    "compileHotReLoad": true
-  }
-}

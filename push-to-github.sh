@@ -26,20 +26,25 @@ if ! gh auth status >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "==> 暂存改动"
-git add -A
+# 只发布这里列出的路径。曾经用 `git add -A` 扫整个父目录，结果把同一文件夹下
+# 其他无关项目一并推上了公开仓库——加新项目时请显式追加。
+PUBLISH=(AITokenBar README.md .gitignore push-to-github.sh)
 
-COUNT=$(git ls-files | wc -l | tr -d ' ')
+echo "==> 暂存改动（仅 ${PUBLISH[*]}）"
+git add -A -- "${PUBLISH[@]}"
+
+COUNT=$(git ls-files -- "${PUBLISH[@]}" | wc -l | tr -d ' ')
 if [ "$COUNT" = "0" ]; then
   echo "!! 没有可提交的文件" >&2
   exit 1
 fi
 
 echo "==> 通过 API 提交 $COUNT 个文件到 $REPO ($BRANCH)"
-python3 - "$REPO" "$BRANCH" "$MESSAGE" <<'PY'
+python3 - "$REPO" "$BRANCH" "$MESSAGE" "${PUBLISH[@]}" <<'PY'
 import subprocess, json, sys
 
 repo, branch, message = sys.argv[1], sys.argv[2], sys.argv[3]
+paths = sys.argv[4:]
 
 def gh(args, payload=None):
     cmd = ["gh", "api"] + args
@@ -62,7 +67,8 @@ except SystemExit:
 
 # 以 git 索引为准，保留可执行位
 entries = []
-for line in subprocess.run(["git", "ls-files", "-s"], capture_output=True, text=True).stdout.splitlines():
+files = subprocess.run(["git", "ls-files", "-s", "--"] + sys.argv[4:], capture_output=True, text=True).stdout
+for line in files.splitlines():
     meta, path = line.split("\t", 1)
     entries.append({
         "path": path,
