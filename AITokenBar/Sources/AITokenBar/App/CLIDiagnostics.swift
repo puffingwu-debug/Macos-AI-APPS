@@ -198,6 +198,31 @@ enum CLIDiagnostics {
         check("已在网格上时位置不变", result?.origin == alreadyOnGrid.origin,
               "got \(String(describing: result?.origin))")
 
+        // A 312 pt widget cannot fit one 180 pt row, so when it is dropped onto an
+        // occupied slot the snap must move it somewhere that is clear for its whole
+        // height rather than letting it sit under the system widget.
+        let occupied = [NSRect(x: 8, y: 41, width: 180, height: 180),
+                        NSRect(x: 188, y: 41, width: 180, height: 180),
+                        NSRect(x: 8, y: 221, width: 360, height: 180)]
+        let tallWidget = NSRect(x: 17, y: 629, width: 342, height: 312)   // top edge 941
+        let placed = SnapMath.snapped(tallWidget, in: screen, threshold: 30, inset: 8,
+                                      grid: grid, avoiding: occupied)
+        let clearsOccupied = placed.map { candidate in
+            !occupied.contains { $0.intersects(candidate) }
+        } ?? false
+        check("落在已占用槽位时让开", clearsOccupied, "got \(String(describing: placed))")
+
+        let onGridRow = placed.map { candidate in
+            grid.rowOrigins(forHeight: 312, in: screen, inset: 8)
+                .contains { abs($0 - candidate.minY) < 1 }
+        } ?? false
+        check("让位后仍贴合网格行", onGridRow, "got \(String(describing: placed?.minY))")
+
+        let freeSpot = NSRect(x: 377, y: 629, width: 342, height: 312)    // nothing under it
+        let kept = SnapMath.snapped(freeSpot, in: screen, threshold: 30, inset: 8,
+                                    grid: grid, avoiding: occupied)
+        check("空位不受影响", kept?.origin == freeSpot.origin, "got \(String(describing: kept?.origin))")
+
         let noGrid = SnapMath.snapped(tall, in: screen, threshold: 30, inset: 8, grid: nil)
         check("无网格时退回边缘吸附", noGrid != nil)
 

@@ -60,7 +60,7 @@ struct WidgetView: View {
         HStack(alignment: .top, spacing: density.columnGap) {
             if settings.showDeepSeek {
                 DeepSeekColumn(store: store, density: density)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(width: density.columnWidth, alignment: .leading)
             }
             if settings.showDeepSeek && settings.showCodex {
                 WidgetDivider()
@@ -68,7 +68,7 @@ struct WidgetView: View {
             }
             if settings.showCodex {
                 CodexColumn(store: store, density: density)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(width: density.columnWidth, alignment: .leading)
             }
             if !settings.showDeepSeek && !settings.showCodex {
                 Text("在设置中开启至少一个数据源")
@@ -86,50 +86,46 @@ struct WidgetView: View {
     @ViewBuilder
     private var detailSection: some View {
         WidgetDivider(vertical: false)
-            .padding(.vertical, 2)
 
         HStack(alignment: .top, spacing: density.columnGap) {
             if settings.showDeepSeek, !store.deepseek.recentDays.isEmpty {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 1) {
                     Text("近 7 天 tokens")
-                        .font(.system(size: density.detailFont))
+                        .font(.system(size: density.detailFont - 1))
                         .foregroundStyle(.secondary)
-                    TrendStrip(days: store.deepseek.recentDays, tint: Theme.deepseek)
+                    TrendStrip(days: store.deepseek.recentDays, tint: Theme.deepseek, height: 20)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(width: density.columnWidth, alignment: .leading)
             }
             if settings.showDeepSeek && settings.showCodex {
                 WidgetDivider().frame(maxHeight: .infinity)
             }
             if settings.showCodex, !store.codex.recentDays.isEmpty {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 1) {
                     Text("近 7 天 tokens")
-                        .font(.system(size: density.detailFont))
+                        .font(.system(size: density.detailFont - 1))
                         .foregroundStyle(.secondary)
-                    TrendStrip(days: store.codex.recentDays, tint: Theme.codex)
+                    TrendStrip(days: store.codex.recentDays, tint: Theme.codex, height: 20)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(width: density.columnWidth, alignment: .leading)
             }
         }
 
-        WidgetDivider(vertical: false)
-            .padding(.vertical, 2)
-
         HStack(alignment: .top, spacing: density.columnGap) {
             if settings.showDeepSeek {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 2) {
                     DeepSeekDetailRows(store: store, density: density)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(width: density.columnWidth, alignment: .leading)
             }
             if settings.showDeepSeek && settings.showCodex {
                 WidgetDivider().frame(maxHeight: .infinity)
             }
             if settings.showCodex {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 2) {
                     CodexDetailRows(store: store, density: density)
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(width: density.columnWidth, alignment: .leading)
             }
         }
     }
@@ -282,17 +278,15 @@ private struct CodexColumn: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            HStack(spacing: 4) {
+            HStack(spacing: 3) {
                 Image(systemName: "sparkles")
                     .font(.system(size: density.symbolSize, weight: .semibold))
                     .foregroundStyle(Theme.codex)
                 Text("ChatGPT")
                     .font(.system(size: density.headerFont, weight: .semibold))
                     .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: false)
-                if snapshot.plan.hasPlan {
-                    PlanBadge(plan: snapshot.plan, font: density.detailFont)
-                }
+                    .minimumScaleFactor(0.7)
+                    .layoutPriority(1)
                 Spacer(minLength: 0)
             }
 
@@ -301,12 +295,19 @@ private struct CodexColumn: View {
                 // caption, a bar. A quota ring at this width was cramped and left
                 // the two columns visibly different heights.
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(Fmt.percent(window.remainingPercent))
-                        .font(.system(size: density.heroFont, weight: .semibold))
-                        .monospacedDigit()
-                        .foregroundStyle(tint(for: window))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
+                    HStack(alignment: .center, spacing: 6) {
+                        Text(Fmt.percent(window.remainingPercent))
+                            .font(.system(size: density.heroFont, weight: .semibold))
+                            .monospacedDigit()
+                            .foregroundStyle(tint(for: window))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            .layoutPriority(1)
+                        Spacer(minLength: 0)
+                        if snapshot.plan.hasPlan {
+                            PlanBadge(plan: snapshot.plan, font: density.detailFont - 1.5)
+                        }
+                    }
                     Text("剩余 · 已用 \(Fmt.percent1(window.usedPercent))")
                         .font(.system(size: density.detailFont))
                         .foregroundStyle(.secondary)
@@ -360,7 +361,7 @@ private struct DeepSeekColumn: View {
                 Text("DeepSeek")
                     .font(.system(size: density.headerFont, weight: .semibold))
                     .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: false)
+                    .minimumScaleFactor(0.75)
                 Spacer(minLength: 0)
             }
 
@@ -437,8 +438,10 @@ private struct DeepSeekDetailRows: View {
         let snapshot = store.deepseek
         StatRow(label: "充值余额", value: Fmt.money(snapshot.toppedUpBalance, currency: snapshot.currency),
                 font: density.detailFont)
-        StatRow(label: "赠金余额", value: Fmt.money(snapshot.grantedBalance, currency: snapshot.currency),
-                font: density.detailFont)
+        if snapshot.grantedBalance > 0.001 {
+            StatRow(label: "赠金余额", value: Fmt.money(snapshot.grantedBalance, currency: snapshot.currency),
+                    font: density.detailFont)
+        }
         if let platform = snapshot.platform {
             StatRow(label: "今日 tokens", value: Fmt.compact(platform.periodTokens),
                     font: density.detailFont, accent: Theme.deepseek)

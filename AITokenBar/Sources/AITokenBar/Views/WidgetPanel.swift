@@ -64,6 +64,8 @@ struct DesktopWidgetGrid: Equatable {
     var pitch: CGFloat = 180
     /// False when no desktop widgets were found and the defaults are in use.
     var detected = false
+    /// The system widgets' own frames, so a placement can avoid sitting on one.
+    var occupied: [NSRect] = []
 
     static let `default` = DesktopWidgetGrid()
 
@@ -149,6 +151,7 @@ struct DesktopWidgetGrid: Equatable {
             }
         }
         grid.pitch = gaps.min() ?? (frames.map(\.width).min() ?? 180)
+        grid.occupied = frames
         grid.detected = true
         return grid
     }
@@ -168,7 +171,8 @@ enum SnapMath {
         in visible: NSRect,
         threshold: CGFloat,
         inset: CGFloat,
-        grid: DesktopWidgetGrid? = nil
+        grid: DesktopWidgetGrid? = nil,
+        avoiding occupied: [NSRect] = []
     ) -> NSRect? {
         guard visible.width > 0, visible.height > 0 else { return nil }
 
@@ -199,7 +203,53 @@ enum SnapMath {
         }
 
         guard didSnap else { return nil }
-        return NSRect(origin: origin, size: frame.size)
+        let target = NSRect(origin: origin, size: frame.size)
+
+        // Landing on top of a system widget is what the user actually notices, so
+        // if the natural target covers one, look for the nearest slot that is free.
+        // The widget is taller than one grid row, so "free" has to mean free across
+        // its whole height, not just at its top edge.
+        guard !occupied.isEmpty, occupied.contains(where: { $0.intersects(target) }) else {
+            return target
+        }
+        if let clear = nearestClear(
+            to: frame, in: visible, threshold: threshold, inset: inset,
+            grid: grid, avoiding: occupied
+        ) {
+            return clear
+        }
+        return target
+    }
+
+    /// Closest snapped position whose whole frame avoids every occupied rect.
+    private static func nearestClear(
+        to frame: NSRect,
+        in visible: NSRect,
+        threshold: CGFloat,
+        inset: CGFloat,
+        grid: DesktopWidgetGrid?,
+        avoiding occupied: [NSRect]
+    ) -> NSRect? {
+        var xs: [CGFloat] = [visible.minX + inset, visible.maxX - frame.width - inset]
+        var ys: [CGFloat] = [visible.maxY - frame.height - inset, visible.minY + inset]
+        if let grid, grid.detected {
+            xs += grid.columnOrigins(forWidth: frame.width, in: visible, inset: inset)
+            ys += grid.rowOrigins(forHeight: frame.height, in: visible, inset: inset)
+        }
+
+        var best: (rect: NSRect, cost: CGFloat)?
+        for x in xs {
+            for y in ys {
+                let candidate = NSRect(x: x, y: y, width: frame.width, height: frame.height)
+                guard !occupied.contains(where: { $0.intersects(candidate) }) else { continue }
+                // Prefer the least movement, but bias towards staying near the drop point.
+                let cost = abs(x - frame.origin.x) + abs(y - frame.origin.y)
+                if best == nil || cost < best!.cost {
+                    best = (candidate, cost)
+                }
+            }
+        }
+        return best?.rect
     }
 
     private static func nearest(in candidates: [CGFloat], to value: CGFloat, within threshold: CGFloat) -> CGFloat? {
@@ -305,6 +355,15 @@ final class WidgetPanelController {
         // preview; make sure a launch never leaves it behind.
         hideGuide()
         panel.orderFrontRegardless()
+
+        // Snap again once the window is actually on a screen. Before it is ordered
+        // front `panel.screen` is nil, so the snap above silently no-ops whenever
+        // NSScreen.main is also unavailable — which left the widget a few points
+        // off the grid until the user happened to drag it.
+        DispatchQueue.main.async { [weak self] in
+            guard let self, AppSettings.shared.snapToEdges else { return }
+            self.snapIfNeeded(animated: false, force: true)
+        }
     }
 
     func hide() {
@@ -458,7 +517,8 @@ final class WidgetPanelController {
             // Forcing means "find the nearest grid line no matter how far".
             threshold: force ? 400 : snapThreshold,
             inset: AppSettings.shared.density.snapInset,
-            grid: currentGrid(on: screen)
+            grid: currentGrid(on: screen),
+            avoiding: currentGrid(on: screen).occupied
         )
     }
 

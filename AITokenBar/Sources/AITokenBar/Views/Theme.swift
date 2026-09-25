@@ -103,16 +103,16 @@ struct PlanBadge: View {
     var font: CGFloat
 
     var body: some View {
-        HStack(spacing: 2.5) {
+        HStack(spacing: 2) {
             Image(systemName: plan.symbol)
                 .font(.system(size: font - 0.5, weight: .bold))
                 .foregroundStyle(Theme.codex)
             Text(plan.badgeText)
                 .font(.system(size: font, weight: .bold))
-                .tracking(0.3)
+                .tracking(0.1)
                 .foregroundStyle(.primary)
         }
-        .padding(.horizontal, 5)
+        .padding(.horizontal, 3.5)
         .padding(.vertical, 1.5)
         .background {
             Capsule().fill(Theme.codex.opacity(0.22))

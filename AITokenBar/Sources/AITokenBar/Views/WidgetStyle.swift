@@ -65,8 +65,15 @@ enum WidgetDensity: String, CaseIterable, Identifiable, Sendable {
         switch self {
         case .mini: return t(5)
         case .compact: return t(9)
-        case .full: return t(10)
+        case .full: return t(7)
         }
+    }
+
+    /// Width of one provider column: the widget minus both paddings, both gaps
+    /// and the 1 pt divider. Applied explicitly to each column so the divider
+    /// always lands dead centre regardless of what either header contains.
+    var columnWidth: CGFloat {
+        (width - outerPadding * 2 - columnGap * 2 - 1) / 2
     }
 
     /// Space between the two provider columns and around their divider.
