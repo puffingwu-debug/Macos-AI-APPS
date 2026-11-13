@@ -1,0 +1,848 @@
+{
+  "repository": "puffingwu-debug/Macos-AI-APPS",
+  "visibility": "public",
+  "category": "macOS 工具与跨端待办",
+  "source_commit": "c0d806d28f59fa2c912580c0ecf1a55790dc3c26",
+  "files": [
+    {
+      "path": ".gitignore",
+      "organized_path": ".gitignore",
+      "category": "版本管理与配置",
+      "bytes": 275,
+      "blob_sha": "e5cc09e013242f4c4a01f444c9e042f6ae4765fb",
+      "content_read": false
+    },
+    {
+      "path": "AITokenBar/Package.swift",
+      "organized_path": "AITokenBar/Package.swift",
+      "category": "AI 用量工具",
+      "bytes": 1208,
+      "blob_sha": "4621a7ca2fdf52cc2f79a473a901be30aed62025",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/README.md",
+      "organized_path": "AITokenBar/README.md",
+      "category": "AI 用量工具",
+      "bytes": 13398,
+      "blob_sha": "74656fd21e1eea9934de47fe633e672dcb07aa69",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Resources/Info.plist",
+      "organized_path": "AITokenBar/Resources/Info.plist",
+      "category": "AI 用量工具",
+      "bytes": 961,
+      "blob_sha": "2c5c3ba70c5151304746318baabbbb18353a6d6f",
+      "content_read": false
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/App/AITokenBarApp.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/App/AITokenBarApp.swift",
+      "category": "AI 用量工具",
+      "bytes": 4545,
+      "blob_sha": "931b70dce05c3fb828cf3e113da77b3167af43c2",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/App/CLIDiagnostics.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/App/CLIDiagnostics.swift",
+      "category": "AI 用量工具",
+      "bytes": 17387,
+      "blob_sha": "f62bc7d241701d17cbc5fdb4e4b35a7124f2b8a5",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Core/AppSettings.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Core/AppSettings.swift",
+      "category": "AI 用量工具",
+      "bytes": 7489,
+      "blob_sha": "5aec4b0179597da67dccce309370e362c19b70fa",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Core/Formatting.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Core/Formatting.swift",
+      "category": "AI 用量工具",
+      "bytes": 3376,
+      "blob_sha": "96fb97bf6d33f3ea08fd4081e8e158d72d9c01ea",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Core/Models.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Core/Models.swift",
+      "category": "AI 用量工具",
+      "bytes": 10397,
+      "blob_sha": "74dbe8c8f6b4a6f75a6b1811f9f5dfe1b6f0b6b3",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Core/ScanSupport.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Core/ScanSupport.swift",
+      "category": "AI 用量工具",
+      "bytes": 3793,
+      "blob_sha": "326bc53e0e06facea1bedbaa02af309dc9f8d5f8",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Core/UsageStore.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Core/UsageStore.swift",
+      "category": "AI 用量工具",
+      "bytes": 17336,
+      "blob_sha": "6bb5401bcc99fc17d6549551bce1ccc3a7020564",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/BalanceLedger.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/BalanceLedger.swift",
+      "category": "AI 用量工具",
+      "bytes": 4291,
+      "blob_sha": "80525aa4f615407d4631dfcc8b8dca7ea40e59a2",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/CodexLiveProvider.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/CodexLiveProvider.swift",
+      "category": "AI 用量工具",
+      "bytes": 5138,
+      "blob_sha": "537051b6cacabad3db0ac9623c0ea8ed63c706c5",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/CodexPlanReader.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/CodexPlanReader.swift",
+      "category": "AI 用量工具",
+      "bytes": 4959,
+      "blob_sha": "98953cbdbd9bbb304784487e67deb7d35651722c",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/CodexScanner.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/CodexScanner.swift",
+      "category": "AI 用量工具",
+      "bytes": 17844,
+      "blob_sha": "0cc3a1500620f4a53639cbda1d283caa7c7b2302",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/CredentialStore.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/CredentialStore.swift",
+      "category": "AI 用量工具",
+      "bytes": 1992,
+      "blob_sha": "694c2189dee2288e62ab07c7752256ef855c9a4d",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/DSHLogScanner.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/DSHLogScanner.swift",
+      "category": "AI 用量工具",
+      "bytes": 14915,
+      "blob_sha": "e69e7a92d9f2de8eddc00642c8334f92c198a4ae",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/DeepSeekPlatformProvider.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/DeepSeekPlatformProvider.swift",
+      "category": "AI 用量工具",
+      "bytes": 11253,
+      "blob_sha": "8f25bad9588714aed71ac32f4f1962c43c7b3589",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Providers/DeepSeekProvider.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Providers/DeepSeekProvider.swift",
+      "category": "AI 用量工具",
+      "bytes": 3180,
+      "blob_sha": "e139afbc26b6cb945b26c5d2e637e301de797aef",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Views/SettingsView.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Views/SettingsView.swift",
+      "category": "AI 用量工具",
+      "bytes": 10971,
+      "blob_sha": "e0fe97f872d557c84aaca8d48803b5d2e6443564",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Views/Theme.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Views/Theme.swift",
+      "category": "AI 用量工具",
+      "bytes": 9054,
+      "blob_sha": "dc0800a19be1240177c7ea42b0ec98f7f914b337",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Views/WidgetPanel.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Views/WidgetPanel.swift",
+      "category": "AI 用量工具",
+      "bytes": 26095,
+      "blob_sha": "55c663bc1666c21cc499e99b85968f7d73422733",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Views/WidgetStyle.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Views/WidgetStyle.swift",
+      "category": "AI 用量工具",
+      "bytes": 5324,
+      "blob_sha": "a3f86e688a5317c069a5e7600ec1feb7f1e3e5d1",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/AITokenBar/Views/WidgetView.swift",
+      "organized_path": "AITokenBar/Sources/AITokenBar/Views/WidgetView.swift",
+      "category": "AI 用量工具",
+      "bytes": 19900,
+      "blob_sha": "0f70688038a2cecf46bf6e90db4715baef9f193c",
+      "content_read": true
+    },
+    {
+      "path": "AITokenBar/Sources/CZstdShim/include/zstd_shim.h",
+      "organized_path": "AITokenBar/Sources/CZstdShim/include/zstd_shim.h",
+      "category": "AI 用量工具",
+      "bytes": 875,
+      "blob_sha": "f89540a4d0235b273ed6907a2bd2f97c0c58c4b8",
+      "content_read": false
+    },
+    {
+      "path": "AITokenBar/Sources/CZstdShim/zstd_shim.c",
+      "organized_path": "AITokenBar/Sources/CZstdShim/zstd_shim.c",
+      "category": "AI 用量工具",
+      "bytes": 2410,
+      "blob_sha": "51d1ec22401eb4880034c992bdbb3ecf0ed2b432",
+      "content_read": false
+    },
+    {
+      "path": "AITokenBar/build.sh",
+      "organized_path": "AITokenBar/build.sh",
+      "category": "AI 用量工具",
+      "bytes": 2138,
+      "blob_sha": "84552403f252601c0f6022b7fa4721e9545bd734",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Package.swift",
+      "organized_path": "QuickTodo/Package.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 699,
+      "blob_sha": "01d545d36d0c6eb6209a86921ef2eb90db3d0194",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/README.md",
+      "organized_path": "QuickTodo/README.md",
+      "category": "跨端待办 / Mac",
+      "bytes": 10161,
+      "blob_sha": "29e5a7aa4ee64b739b116aea44b5f77a1a82a623",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Resources/Info.plist",
+      "organized_path": "QuickTodo/Resources/Info.plist",
+      "category": "跨端待办 / Mac",
+      "bytes": 1347,
+      "blob_sha": "79fcc7403551ca7db53b02cd758c2e75c6da5ab5",
+      "content_read": false
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/App/AppState.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/App/AppState.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 15353,
+      "blob_sha": "8e2546d8301d923ff328ca932674918f70ff6351",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/App/HotKeyManager.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/App/HotKeyManager.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 4974,
+      "blob_sha": "d9c73d7e95706b09399a2434fea44c1c3260de78",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/App/IntegrationTest.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/App/IntegrationTest.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 19011,
+      "blob_sha": "fb7b2b20d69d0d244a9749f7aa3381aa4aa347c0",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/App/QuickTodoApp.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/App/QuickTodoApp.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 5632,
+      "blob_sha": "deeb06ef68f61ba17acd3055256ab66bb644dde9",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/App/SelfTest.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/App/SelfTest.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 14289,
+      "blob_sha": "151da6c7a60153ff5c13667ff8f3ef2d2f03335b",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/AppSettings.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/AppSettings.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 4450,
+      "blob_sha": "caed4923332d99c35bb99cd45e459f1e9693dcbe",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/Formatting.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/Formatting.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 3619,
+      "blob_sha": "81d3c3aa6bf02a8dcdcb52ca140f2c25a2318835",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/KeychainStore.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/KeychainStore.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 1748,
+      "blob_sha": "cd262ed9253d0ce57769fe9061f052155ff6db5d",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/LocalQuickParser.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/LocalQuickParser.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 16262,
+      "blob_sha": "f399ff7bdb9e58bd5082f28629721e0dca777a37",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/LocalStore.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/LocalStore.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 11216,
+      "blob_sha": "16cb8a3469a44a2becf199ba95ff07cf5b95b4e7",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/LoginService.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/LoginService.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 5813,
+      "blob_sha": "c01fa73bcb13705bcb0eae7601a9bfb978e396cb",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/OCRService.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/OCRService.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 2716,
+      "blob_sha": "6360503b00e8999e73ec5c05939e3f6732f97db2",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/QuickTodoAPI.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/QuickTodoAPI.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 10879,
+      "blob_sha": "ad00d0176f335c743d9f11bef28a659179db8d94",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/ScreenshotService.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/ScreenshotService.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 3624,
+      "blob_sha": "c8880eeb8ad58052c9f9caf262e827a3db475b26",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/SyncEngine.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/SyncEngine.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 9382,
+      "blob_sha": "b6a29e1f952833d4073f41e0eaffe21520ae7dc9",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/Core/Todo.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/Core/Todo.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 9553,
+      "blob_sha": "e9a06436b9c2b7256df36a6aeb4fd5984270a550",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/BallView.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/BallView.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 3551,
+      "blob_sha": "3477f77c8fa9186ba9e6cc6b40bb92559e99713c",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/CaptureViews.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/CaptureViews.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 14225,
+      "blob_sha": "b2d424e4161b5aea97a889d03587f4728fb58981",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/EditorView.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/EditorView.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 5293,
+      "blob_sha": "9ef6314dca3674a94c80a4fc1ca9fc384c84350d",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/LoginView.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/LoginView.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 4322,
+      "blob_sha": "18f692d34e5f1e1031d5da4ae5e4287bffcf7b2a",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/PanelController.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/PanelController.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 11921,
+      "blob_sha": "4b3a2823c15bae0eebeabfab3ee4492ad1b4d181",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/RootView.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/RootView.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 10383,
+      "blob_sha": "2fdc4b93bcb40f3c862e1ae87a0a16b1a35e692f",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/SettingsView.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/SettingsView.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 16066,
+      "blob_sha": "24dc4def85e366e5135afe4ca52b8d39f19bd3f0",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/Sources/QuickTodo/UI/TodoListView.swift",
+      "organized_path": "QuickTodo/Sources/QuickTodo/UI/TodoListView.swift",
+      "category": "跨端待办 / Mac",
+      "bytes": 9763,
+      "blob_sha": "187232ecaa0551a919d82be17602e7775b777937",
+      "content_read": true
+    },
+    {
+      "path": "QuickTodo/build.sh",
+      "organized_path": "QuickTodo/build.sh",
+      "category": "跨端待办 / Mac",
+      "bytes": 1817,
+      "blob_sha": "4e9717daac43fb02da687399b2664ec57232e286",
+      "content_read": true
+    },
+    {
+      "path": "README.md",
+      "organized_path": "README.md",
+      "category": "仓库说明",
+      "bytes": 3473,
+      "blob_sha": "fe90c3b8228dbada107a1bb2cdb379cbe759106c",
+      "content_read": true
+    },
+    {
+      "path": "docs/SYNC-PROTOCOL.md",
+      "organized_path": "docs/SYNC-PROTOCOL.md",
+      "category": "接口与验证文档",
+      "bytes": 17039,
+      "blob_sha": "f8a587fd2d45598efb0dbfc8b6a42947696f2fcc",
+      "content_read": true
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "organized_path": "docs/VERIFICATION.md",
+      "category": "接口与验证文档",
+      "bytes": 12104,
+      "blob_sha": "006fe07635ead625649c5873d249878ac7fdbdc8",
+      "content_read": true
+    },
+    {
+      "path": "push-to-github.sh",
+      "organized_path": "push-to-github.sh",
+      "category": "仓库工具",
+      "bytes": 3756,
+      "blob_sha": "a7fd547710a573d1ee0064e4c6f738f0c7242b21",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/README.md",
+      "organized_path": "quicktodo-weapp/README.md",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 23604,
+      "blob_sha": "3406187292dfa399c16eea8e9419f38421cc39e6",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/README.md",
+      "organized_path": "quicktodo-weapp/cloudfunctions/README.md",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 22328,
+      "blob_sha": "b8e8626ad98f1ffbe555b8aa322abd6fe4e8e5d2",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/ai/index.js",
+      "organized_path": "quicktodo-weapp/cloudfunctions/ai/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 22418,
+      "blob_sha": "8b4a20ea67ab9d60d87642008a2863f0d3d584e0",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/ai/package.json",
+      "organized_path": "quicktodo-weapp/cloudfunctions/ai/package.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 293,
+      "blob_sha": "8e8b6e48559109f2a58979a46bc7b69f970f2644",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/ai/parser.js",
+      "organized_path": "quicktodo-weapp/cloudfunctions/ai/parser.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 23383,
+      "blob_sha": "9ab57c4c9383521f94ae237b3e96a2f79c2fa86a",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/ai/prompt.js",
+      "organized_path": "quicktodo-weapp/cloudfunctions/ai/prompt.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 9443,
+      "blob_sha": "2386b40c2b2589d0d6874128db613f8ec8081d6e",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/auth/index.js",
+      "organized_path": "quicktodo-weapp/cloudfunctions/auth/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 12649,
+      "blob_sha": "bb4e2a241a817e0529e31edd177b146405ea16f6",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/auth/package.json",
+      "organized_path": "quicktodo-weapp/cloudfunctions/auth/package.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 291,
+      "blob_sha": "7b79897e14f387a97b49b0311ead254e62ad6034",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/todo/index.js",
+      "organized_path": "quicktodo-weapp/cloudfunctions/todo/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 24919,
+      "blob_sha": "33dad54a30751f1a855d8ea497cb8f84dbc1547a",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/cloudfunctions/todo/package.json",
+      "organized_path": "quicktodo-weapp/cloudfunctions/todo/package.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 279,
+      "blob_sha": "0d587a759c8644c59c39957b0487a7702c5f99d4",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/app.js",
+      "organized_path": "quicktodo-weapp/miniprogram/app.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 2903,
+      "blob_sha": "3fd90f4127227efb2f59df979df4721ab9247d73",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/app.json",
+      "organized_path": "quicktodo-weapp/miniprogram/app.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 804,
+      "blob_sha": "f0dfba55cd55d57ed23e8194bcd3f413110989c2",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/app.wxss",
+      "organized_path": "quicktodo-weapp/miniprogram/app.wxss",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 2669,
+      "blob_sha": "b68956c04e1b38d70c59531dc4cf2b800b904cd3",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/float-ball/index.js",
+      "organized_path": "quicktodo-weapp/miniprogram/components/float-ball/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 9212,
+      "blob_sha": "59d451be7dd5e341f2049daf1c5c618f2af56640",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/float-ball/index.json",
+      "organized_path": "quicktodo-weapp/miniprogram/components/float-ball/index.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 49,
+      "blob_sha": "a89ef4dbeefa01f5cd7971973aa4db6498d139f7",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/float-ball/index.wxml",
+      "organized_path": "quicktodo-weapp/miniprogram/components/float-ball/index.wxml",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 1502,
+      "blob_sha": "95a3eeb63b8d6a4417bacf88597191b6cbba676f",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/float-ball/index.wxss",
+      "organized_path": "quicktodo-weapp/miniprogram/components/float-ball/index.wxss",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 3887,
+      "blob_sha": "653ae42896cd4eb0be1d28e0bd248cc48f37b164",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-item/index.js",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-item/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 1202,
+      "blob_sha": "a82e8722a6b67dc848035dc8fd7771cfc5afe960",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-item/index.json",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-item/index.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 49,
+      "blob_sha": "a89ef4dbeefa01f5cd7971973aa4db6498d139f7",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-item/index.wxml",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-item/index.wxml",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 807,
+      "blob_sha": "83db457916f4cf08db8ce3a7435afd28bc6b9a31",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-item/index.wxss",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-item/index.wxss",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 3006,
+      "blob_sha": "fc4e1a7f0706affa10effc443b4168eeb134d431",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.js",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 10134,
+      "blob_sha": "1d71d56d4228ed8ed1296f5dd78685b005586971",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.json",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 49,
+      "blob_sha": "a89ef4dbeefa01f5cd7971973aa4db6498d139f7",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.wxml",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.wxml",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 5433,
+      "blob_sha": "1187074722734f8e161d2365130e5fe6d6f6cada",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.wxss",
+      "organized_path": "quicktodo-weapp/miniprogram/components/todo-sheet/index.wxss",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 7855,
+      "blob_sha": "d659ee0b3744b2a94f52df3f8554ca7e3a295eae",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/config.js",
+      "organized_path": "quicktodo-weapp/miniprogram/config.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 2241,
+      "blob_sha": "2cd93a3f9db5868146fe97540a326bca12a1e59b",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/index/index.js",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/index/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 17594,
+      "blob_sha": "a49c7ff22e333e1f6a2c1a55d6c8e1cfda424d52",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/index/index.json",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/index/index.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 317,
+      "blob_sha": "2e2d4cd41d2fa1570ffcba9d5925599a450ddfe4",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/index/index.wxml",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/index/index.wxml",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 2912,
+      "blob_sha": "e94e3e55668e1856a1672b9051a1fed985b9a081",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/index/index.wxss",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/index/index.wxss",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 3847,
+      "blob_sha": "236e2f987db2d4cc042ec11d74175b95c6dee64a",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/mine/index.js",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/mine/index.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 11715,
+      "blob_sha": "c586d5b21b57aa23f7b34c9fc8298f021485ba15",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/mine/index.json",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/mine/index.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 98,
+      "blob_sha": "2033d6fdbe6fada380a1b01d403f3aebbcba3738",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/mine/index.wxml",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/mine/index.wxml",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 4595,
+      "blob_sha": "51b3598cb5178b4e2060982d1e89f15836e2229d",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/pages/mine/index.wxss",
+      "organized_path": "quicktodo-weapp/miniprogram/pages/mine/index.wxss",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 4362,
+      "blob_sha": "1f2aa5e6f4fecb6caf32bd9d33103141fa7f66d5",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/sitemap.json",
+      "organized_path": "quicktodo-weapp/miniprogram/sitemap.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 210,
+      "blob_sha": "9230ad86f7c23fd275e45650bd2ae1c1df158358",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/utils/api.js",
+      "organized_path": "quicktodo-weapp/miniprogram/utils/api.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 6339,
+      "blob_sha": "426729abcbf9bfb3ef371e3385fea428b77581a9",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/utils/format.js",
+      "organized_path": "quicktodo-weapp/miniprogram/utils/format.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 7188,
+      "blob_sha": "990fa9238b5f080b75725e2522e79fa05d0c7895",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/utils/store.js",
+      "organized_path": "quicktodo-weapp/miniprogram/utils/store.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 26227,
+      "blob_sha": "bb2a1659bf85df24936b19d0377e1e8c5f2221e7",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/utils/sync.js",
+      "organized_path": "quicktodo-weapp/miniprogram/utils/sync.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 9381,
+      "blob_sha": "8c4f2baaa3ba7620763e63541200f66a73683c3f",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/miniprogram/utils/voice.js",
+      "organized_path": "quicktodo-weapp/miniprogram/utils/voice.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 9242,
+      "blob_sha": "b4ad34448791cab07d0d4f8eaa7c25d238b3386a",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/project.config.json",
+      "organized_path": "quicktodo-weapp/project.config.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 1013,
+      "blob_sha": "f989cb0b157dce4ad1e4d7f8b939896c1341a8f0",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/project.private.config.json",
+      "organized_path": "quicktodo-weapp/project.private.config.json",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 246,
+      "blob_sha": "5e9c73bcf6ed2b3135fbe60563d167f53f47e5fc",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/tools/README.md",
+      "organized_path": "quicktodo-weapp/tools/README.md",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 9428,
+      "blob_sha": "e29cbd55b49e0460ee5fd4786fdc2022f4a5eb8a",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/tools/cloud-harness.js",
+      "organized_path": "quicktodo-weapp/tools/cloud-harness.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 59064,
+      "blob_sha": "dc1bb4eac65495787508dbde14f53b49a568b9a8",
+      "content_read": true
+    },
+    {
+      "path": "quicktodo-weapp/tools/miniprogram-tests.js",
+      "organized_path": "quicktodo-weapp/tools/miniprogram-tests.js",
+      "category": "跨端待办 / 微信及云函数",
+      "bytes": 39638,
+      "blob_sha": "d22c50dbaf219187074d3c1ba935582215aa8bed",
+      "content_read": true
+    },
+    {
+      "path": "tools/check-contract.js",
+      "organized_path": "tools/check-contract.js",
+      "category": "仓库工具",
+      "bytes": 11349,
+      "blob_sha": "75b2fbc53b5a93000eec0c7b5c6a3d091c3e69b3",
+      "content_read": true
+    }
+  ]
+}
