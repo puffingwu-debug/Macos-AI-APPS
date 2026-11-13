@@ -1,5 +1,9 @@
 # Macos AI APPS
 
+## 内容导航
+
+[分类入口与逐文件清单](docs/REPOSITORY-INDEX.md) · [机器可读清单](docs/FILES.json)
+
 macOS 上的 AI 相关小工具集合。多数项目为原生 Swift / SwiftUI，不依赖 Xcode 工程文件
 （`swift build` 即可）；跨端项目另有微信小程序与云函数部分。
 
